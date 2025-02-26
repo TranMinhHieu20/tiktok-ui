@@ -20,12 +20,19 @@
 }
 
 .logo {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.search,
+.search-result {
+    width: 361px;
 }
 
 .search {
     position: relative;
     display: flex;
-    width: 361px;
     height: var(--search-height);
     padding-left: 16px;
     background-color: rgba(22, 24, 25, 0.06);
@@ -61,6 +68,13 @@
     }
 }
 
+.search-title {
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    color: rgb(22, 24, 35, 0.5);
+    font-weight: 600;
+}
+
 .clear,
 .loading {
     position: absolute;
@@ -87,7 +101,7 @@
     &:active {
         background-color: rgba(22, 24, 25, 0.06);
     }
-}
-
-.actions {
+    &:focus {
+        outline: none;
+    }
 }
