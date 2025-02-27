@@ -84,6 +84,8 @@ function Header() {
             default:
         }
     };
+
+    const currentUser = true;
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -135,18 +137,22 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}>
-                    <Button text>Up load</Button>
-                    <Button primary>Log in</Button>
-                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon
-                                icon={faEllipsisVertical}
-                                className={cx('faEllipsisVertical-icon')}
-                            />
-                        </button>
-                    </Menu>
-                </div>
+                {currentUser ? (
+                    <div className={cx('current-user')}></div>
+                ) : (
+                    <div className={cx('actions')}>
+                        <Button text>Up load</Button>
+                        <Button primary>Log in</Button>
+                        <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+                            <button className={cx('more-btn')}>
+                                <FontAwesomeIcon
+                                    icon={faEllipsisVertical}
+                                    className={cx('faEllipsisVertical-icon')}
+                                />
+                            </button>
+                        </Menu>
+                    </div>
+                )}
             </div>
         </header>
     );
