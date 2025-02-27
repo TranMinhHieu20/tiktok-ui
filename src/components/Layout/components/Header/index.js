@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleXmark,
+    faEllipsisVertical,
     faMagnifyingGlass,
     faSignIn,
     faSpinner,
@@ -14,6 +15,7 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 
@@ -78,6 +80,14 @@ function Header() {
                 <div className={cx('actions')}>
                     <Button text>Up load</Button>
                     <Button primary>Log in</Button>
+                    <Menu>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon
+                                icon={faEllipsisVertical}
+                                className={cx('faEllipsisVertical-icon')}
+                            />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
