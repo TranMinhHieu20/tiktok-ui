@@ -1,5 +1,6 @@
 //Menu
 .menu-list {
+    position: relative;
     width: 224px;
 
     .menu-item {
@@ -21,6 +22,9 @@
     &:hover {
         background-color: rgb(22 24 35 / 3%);
     }
+    &.separate {
+        border-top: 1px solid rgb(22 24 35 / 12%);
+    }
 }
 
 //Menu-header.js
@@ -41,4 +45,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.arrow-menu {
+    width: 10px;
+    height: 10px;
+    background-color: red;
 }

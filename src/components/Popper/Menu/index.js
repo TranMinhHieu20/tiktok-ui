@@ -19,6 +19,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             const isParent = !!item.children;
             return (
                 <MenuItem
+                    // className={cx('arrow-menu')}
                     key={index}
                     data={item}
                     onClick={() => {
@@ -35,7 +36,9 @@ function Menu({ children, items = [], onChange = defaultFn }) {
     return (
         <Tippy
             interactive
+            visible
             placement="bottom-end"
+            offset={[15, 8]}
             delay={[0, 500]}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
