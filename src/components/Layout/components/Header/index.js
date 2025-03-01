@@ -32,6 +32,8 @@ import {
     faSignalMessenger,
     faTiktok,
 } from '@fortawesome/free-brands-svg-icons';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -84,7 +86,7 @@ const MENU_ITEMS = [
 function Header() {
     const [searchResult, setSearchRuslt] = useState([]);
 
-    const currentUser = false;
+    const currentUser = true;
 
     useEffect(() => {
         setTimeout(() => {
@@ -211,10 +213,7 @@ function Header() {
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon
-                                        icon={faUpload}
-                                        className={cx('faUpload-icon')}
-                                    />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             {/* <Tippy
@@ -242,10 +241,11 @@ function Header() {
                         // className={cx('arrow-menu')}
                     >
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
-                                src="https://sinhvien.epu.edu.vn/GetImage.aspx?MSSV=22810310174"
+                                src="https://sinhvie.epu.edu.vn/GetImage.aspx?MSSV=22810310174"
                                 alt="Trần Minh Hiếu"
+                                fallBack="https://th.bing.com/th/id/OIP.h8HQw4WfOBdM6S8rn3AyvwHaHa?rs=1&pid=ImgDetMain"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
