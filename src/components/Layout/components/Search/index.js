@@ -7,10 +7,14 @@ import {
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
+
+import * as request from '~/utils/request';
 import 'tippy.js/dist/tippy.css';
 import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
+
+import * as searchServices from '~/apiServices/searchServices';
 
 const cx = classNames.bind(styles);
 function Search() {
@@ -33,19 +37,27 @@ function Search() {
         setLoading(true);
 
         const timer = setTimeout(() => {
-            fetch(
-                `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-                    searchValue,
-                )}&type=less`,
-            )
-                .then((res) => res.json())
-                .then((res) => {
-                    setSearchRuslt(res.data);
-                    setLoading(false);
-                })
-                .catch(() => {
-                    setLoading(false);
-                });
+            // const fetch = async () => {
+            //     try {
+            //         const res = await request.get('users/search', {
+            //             params: {
+            //                 q: searchValue,
+            //                 type: 'less',
+            //             },
+            //         });
+            //         setSearchRuslt(res.data);
+            //         setLoading(false);
+            //     } catch (error) {
+            //         setLoading(false);
+            //     }
+            // };
+            const fetchApi = async () => {
+                setLoading(true);
+                const res = await searchServices.search(searchValue);
+                setSearchRuslt(res);
+                setLoading(false);
+            };
+            fetchApi();
         }, 600);
         return () => clearTimeout(timer);
     }, [searchValue]);
