@@ -9,6 +9,11 @@
     box-shadow: 0px 1px 1px rgba(0 0 0 / 12%);
     display: flex;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
 }
 
 .inner {
@@ -21,6 +26,7 @@
 }
 
 .logo {
+    display: flex;
     &:hover {
         cursor: pointer;
     }
@@ -38,9 +44,11 @@
     background-color: transparent;
     padding: 4px 8px;
     cursor: pointer;
+    overflow-y: scroll;
 }
 
 .action-btn {
+    display: flex;
     font-size: 2rem;
     color: rgb(22 24 35);
     padding: 4px 12px;

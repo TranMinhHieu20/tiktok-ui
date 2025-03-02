@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faArrowRightToBracket,
@@ -11,6 +11,8 @@ import {
     faQuestionCircle,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import config from '~/config';
+
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import styles from './Header.module.scss';
@@ -18,9 +20,9 @@ import images from '~/assets/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 
-import { MessengerIcon, UploadIcon } from '~/components/Icons/UploadIcon';
+import { UploadIcon } from '~/components/Icons/UploadIcon';
 import Image from '~/components/Image';
-import Search from '~/components/Layout/components/Search';
+import Search from '~/layouts/components/Search';
 
 const cx = classNames.bind(styles);
 
@@ -135,9 +137,13 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')} title="Tiktok">
+                <Link
+                    to={config.routes.home}
+                    className={cx('logo')}
+                    title="Tiktok"
+                >
                     <img src={images.logo} alt="Tiktok" />
-                </div>
+                </Link>
                 <Search />
 
                 <div className={cx('actions')}>
@@ -176,7 +182,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://sinhvie.epu.edu.vn/GetImage.aspx?MSSV=22810310174"
+                                src="https://sinhvien.epu.edu.vn/GetImage.aspx?MSSV=22810310174"
                                 alt="Trần Minh Hiếu"
                                 fallBack="https://th.bing.com/th/id/OIP.h8HQw4WfOBdM6S8rn3AyvwHaHa?rs=1&pid=ImgDetMain"
                             />
