@@ -110,16 +110,7 @@ function Header() {
             title: 'Setting',
             to: '/settings',
         },
-        {
-            icon: (
-                <FontAwesomeIcon
-                    icon={faQuestionCircle}
-                    className={cx('faQuestionCircle-icon')}
-                />
-            ),
-            title: 'Feedback and help',
-            to: '/feedback',
-        },
+
         ...MENU_ITEMS,
         {
             icon: (
